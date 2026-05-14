@@ -1,11 +1,11 @@
 from google.adk.agents import ParallelAgent, SequentialAgent, Agent
-from Travel-Planner-Multi-agent.Sub-agents import (activity_finder_agent, flight_finder_agent, hotel_finder_agent)
+from Travel_Planner_Multi_Agent.sub_agents import (activity_finder_agent, flight_finder_agent, hotel_finder_agent)
 
 
 parallel_search = ParallelAgent(
     name= "ParallelSearch",
     sub_agents=[
-        activity_finder, flight_finder, hotel_finder
+        activity_finder_agent, flight_finder_agent, hotel_finder_agent
     ],
     description=" Searches for flights, hotels, activities, etc"
 )
