@@ -13,6 +13,7 @@ parallel_search = ParallelAgent(
         hotel_finder,
         activity_finder,
         weather_finder
+        
     ],  
     description="Searches flights, hotels, weather and activities concurrently"
 )
@@ -20,7 +21,7 @@ parallel_search = ParallelAgent(
 
 itinerary_builder = Agent(
     name="itinerary_builder",
-    model="gemini-2.5-flash",
+    model="gemini-2.5-flash-lite",
     description="Combines all search results into a complete travel itinerary",
     instruction="""
     You are a travel planner. Create a complete, well-organized itinerary by 
@@ -54,15 +55,12 @@ itinerary_builder = Agent(
 
 
 
-travel_planning_system = SequentialAgent(
+root_agent = SequentialAgent(
     name="TravelPlanningSystem",
     sub_agents=[
-        parallel_search,     # Step 1: Gather data in parallel (FAST!)
-        itinerary_builder    # Step 2: Merge results (synthesis)
+        parallel_search,
+        itinerary_builder
     ],
     description="Complete travel planning system with parallel search and itinerary building"
 )
 
-
-
-root_agent = travel_planning_system

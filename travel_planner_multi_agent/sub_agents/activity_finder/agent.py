@@ -3,8 +3,8 @@ from .prompts import ACTIVITY_FINDER_INSTRUCTION
 
 activity_finder = Agent(
     name="activity_finder",
-    model="gemini-2.5-flash",
+    model="gemini-2.5-flash-lite",
     description="Finds activities",
-    instruction=ACTIVITY_FINDER_INSTRUCTION,
+    instruction= ACTIVITY_FINDER_INSTRUCTION,
     output_key="activity_options"
 )
